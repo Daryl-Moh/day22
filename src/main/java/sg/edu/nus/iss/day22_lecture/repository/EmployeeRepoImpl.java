@@ -30,7 +30,7 @@ public class EmployeeRepoImpl implements EmployeeRepo {
             "inner join dependent d " +
             "on e.id = d.employee_id ";
 
-            jdbcTemplate.query(selectSQL, new ResultSetExtractor<List<Employee>>() {
+            return jdbcTemplate.query(selectSQL, new ResultSetExtractor<List<Employee>>() {
 
                 @Override
                 public List<Employee> extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -76,6 +76,5 @@ public class EmployeeRepoImpl implements EmployeeRepo {
 
             });
 
-        return null;
     }
 }
